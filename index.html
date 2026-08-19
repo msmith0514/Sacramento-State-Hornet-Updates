@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <header class="site-header">
@@ -63,9 +63,9 @@
       <div class="section-heading inverted">
         <div>
           <p class="eyebrow gold">LAST NIGHT</p>
-          <h2>YESTERDAY'S FORMER HORNETS</h2>
+          <h2 id="resultsHeading">YESTERDAY'S FORMER HORNETS</h2>
         </div>
-        <span class="section-note light">Verified-stat format</span>
+        <span class="section-note light" id="resultsMode">Verified-stat format</span>
       </div>
 
       <div class="award-grid">
@@ -73,6 +73,7 @@
         <article class="award-card" id="topPitcher"></article>
       </div>
 
+      <div class="persistence-note" id="persistenceNotice"></div>
       <div class="results-block">
         <p class="eyebrow gold">DAILY RESULTS</p>
         <div id="yesterdayResults"></div>
@@ -137,10 +138,10 @@
     <strong>SAC STATE BASEBALL DAILY</strong>
     <p>Following the Hornets from Sacramento to the pros.</p>
     <p class="disclaimer">Sac State Baseball Daily is an independent fan/media project and is not affiliated with or endorsed by Sacramento State.</p>
-      <p class="build-marker">Build: Hornets-only v5</p>
+      <p class="build-marker">Build: Hornets-only v6 · headshots + persistent latest updates</p>
   </footer>
 
-  <script src="hornets-data-v5.js?v=5"></script>
-  <script src="hornets-app-v5.js?v=5"></script>
+  <script src="hornets-data-v6.js?v=6"></script>
+  <script src="hornets-app-v6.js?v=6"></script>
 </body>
 </html>
