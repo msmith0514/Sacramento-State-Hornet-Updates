@@ -1,3 +1,0 @@
-Hornets-only v6
-Profile photos: MLB/MiLB official headshot CDN with fallback
-Persistent homepage: keeps last verified updates until newer verified data replaces them
