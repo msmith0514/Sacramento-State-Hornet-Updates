@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#043927" />
+  <meta name="description" content="Independent Sacramento State baseball alumni and player tracking site." />
+  <title>Sac State Baseball Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=31" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Sac State Baseball Daily home">SAC STATE BASEBALL DAILY</a>
+    <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#live">Live</a>
+      <a href="#college">D1 Scores</a>
+    <a href="#yesterday">Yesterday</a>
+      <a href="#players">Players</a>
+      <a href="#highlights">Videos</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu" hidden>
+    <a href="#live">Live</a>
+    <a href="#yesterday">Yesterday</a>
+    <a href="#players">Players</a>
+    <a href="#highlights">Videos</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">SACRAMENTO STATE BASEBALL · ALUMNI HUB</p>
+        <h1>HORNETS<br>IN PRO BALL</h1>
+        <p class="hero-text">The daily home for former Sacramento State Hornet baseball players in professional baseball — live status, game recaps, highlights and season statistics.</p>
+        <p class="refresh" id="refreshText">Roster locked to verified former Sacramento State Hornets</p>
+      </div>
+      <div class="hero-photo" aria-label="Sacramento State John Smith Field">
+        <div class="photo-overlay">
+          <span>FEATURED HORNET</span>
+          <strong>JOHN SMITH FIELD</strong>
+          <small class="photo-credit">Sacramento State baseball home field</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="live">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TODAY</p>
+          <h2>FORMER HORNETS PLAYING NOW</h2>
+        </div>
+        <span class="section-note">Live / scheduled</span>
+      </div>
+      <div class="game-list" id="liveGames"></div>
+    </section>
+
+
+    <section class="section college-scoreboard-section" id="college">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">COLLEGE BASEBALL</p>
+          <h2>D1 BASEBALL SCOREBOARD</h2>
+        </div>
+        <span class="section-note" id="collegeScoreNote">Live scores · auto-refresh</span>
+      </div>
+      <div class="college-scoreboard-banner" id="collegeScoreBanner">NCAA Division I baseball scores</div>
+      <div class="college-scoreboard-grid" id="collegeGames">
+        <div class="scoreboard-loading"><strong>Loading Division I baseball games…</strong></div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="yesterday">
+      <div class="section-heading inverted">
+        <div>
+          <p class="eyebrow gold">LAST NIGHT</p>
+          <h2 id="resultsHeading">YESTERDAY'S FORMER HORNETS</h2>
+        </div>
+        <span class="section-note light" id="resultsMode">Verified-stat format</span>
+      </div>
+
+      <div class="award-grid">
+        <article class="award-card" id="playerOfDay"></article>
+        <article class="award-card" id="topPitcher"></article>
+      </div>
+
+      <div class="persistence-note compact-note" id="persistenceNotice"></div>
+      <div class="results-block">
+        <p class="eyebrow gold">DAILY RESULTS</p>
+        <div id="yesterdayResults"></div>
+      </div>
+    </section>
+
+    <section class="section report-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DAILY PUBLICATION</p>
+          <h2>THE DAILY HORNET REPORT</h2>
+        </div>
+        <span class="section-note" id="reportDate"></span>
+      </div>
+      <article class="story-card">
+        <p class="eyebrow gold">LEAD STORY</p>
+        <h3 id="storyHeadline">Hornets Make Their Mark Across Pro Baseball</h3>
+        <p id="storyBody" class="story-body"></p>
+      </article>
+    </section>
+
+    <section class="section" id="highlights">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">VIDEO</p>
+          <h2>HORNET HIGHLIGHTS</h2>
+        </div>
+        <span class="section-note">Official links only</span>
+      </div>
+      <div class="video-grid" id="videoGrid"></div>
+    </section>
+
+    <section class="section dark-section" id="players">
+      <div class="section-heading inverted">
+        <div>
+          <p class="eyebrow gold">DIRECTORY</p>
+          <h2>FORMER HORNETS IN PRO BASEBALL</h2>
+        </div>
+        <span class="section-note light">Sacramento State alumni only</span>
+      </div>
+      <div class="filters" role="group" aria-label="Player filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="alumni">All Former Hornets</button>
+        <button class="filter" data-filter="pitcher">Pitchers</button>
+        <button class="filter" data-filter="position">Position Players</button>
+      </div>
+      <div class="player-grid" id="playerGrid"></div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ABOUT</p>
+          <h2>BUILT FOR HORNET FANS</h2>
+        </div>
+      </div>
+      <p>This GitHub Pages site is restricted to the approved former Sacramento State baseball alumni watchlist. Live games, statistics, news and video are displayed only when they can be tied to one of those former Hornets with a verified source. No fictional players are permitted.</p>
+    </section>
+  </main>
+
+  <footer>
+    <strong>SAC STATE BASEBALL DAILY</strong>
+    <p>Following the Hornets from Sacramento to the pros.</p>
+    <p class="disclaimer">Sac State Baseball Daily is an independent fan/media project and is not affiliated with or endorsed by Sacramento State.</p>
+      <p class="build-marker">Build: Hornets-only v13 · MLB + NCAA D-I scoreboards + persistent Hornet updates</p>
+  </footer>
+
+  <script src="hornets-data-v7.js?v=10"></script>
+  <script src="hornets-app-v14.js?v=14"></script>
+</body>
+</html>
