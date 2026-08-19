@@ -1,0 +1,1004 @@
+:root {
+  --green-950: #02261c;
+  --green-900: #043927;
+  --green-800: #0b513a;
+  --gold: #d6a619;
+  --cream: #f4efe4;
+  --paper: #fffdf8;
+  --ink: #10241d;
+  --muted: #6f7c77;
+  --line: #d9ded8;
+  --red: #c92b21;
+  --shadow: 0 20px 45px rgba(24, 39, 30, 0.1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 6vw;
+  background: var(--green-950);
+  color: #fff;
+  border-bottom: 6px solid var(--gold);
+}
+.brand {
+  font-family: Anton, Impact, sans-serif;
+  color: #f5c94a;
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  letter-spacing: .02em;
+}
+.desktop-nav { display: flex; gap: 24px; font-weight: 800; }
+.desktop-nav a:hover { color: #f5c94a; }
+.menu-button {
+  display: none;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 16px;
+  background: transparent;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.mobile-menu {
+  position: sticky;
+  top: 92px;
+  z-index: 29;
+  display: grid;
+  background: var(--green-950);
+  color: white;
+  padding: 12px 6vw 22px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.mobile-menu[hidden] { display: none; }
+.mobile-menu a { padding: 12px 0; font-weight: 800; }
+
+.hero {
+  background: linear-gradient(110deg, var(--green-900) 0%, #274d2d 58%, #3d522a 100%);
+  color: white;
+  padding: 72px 6vw 84px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 56px;
+  align-items: center;
+}
+.eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--green-800);
+  font-size: .88rem;
+}
+.gold { color: #efbd33; }
+.hero .eyebrow { color: #efbd33; }
+.hero h1, .section h2, .story-card h3 {
+  font-family: Anton, Impact, sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: .93;
+  letter-spacing: .01em;
+}
+.hero h1 { font-size: clamp(4rem, 9vw, 8rem); margin-top: 18px; }
+.hero-text { font-size: clamp(1.15rem, 2vw, 1.8rem); line-height: 1.75; color: #d9e1dc; max-width: 820px; }
+.refresh { font-family: "IBM Plex Mono", monospace; color: #aebdb6; }
+.hero-photo {
+  min-height: 560px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.2);
+  background:
+    linear-gradient(to top, rgba(2,38,28,.92) 0%, rgba(2,38,28,.52) 35%, rgba(2,38,28,.08) 72%),
+    url("john-smith-field.webp") center center / cover no-repeat;
+  position: relative;
+}
+.photo-overlay { position: absolute; left: 28px; right: 28px; bottom: 28px; display: grid; gap: 8px; }
+.photo-overlay span { color: #efbd33; font-family: "IBM Plex Mono", monospace; font-weight: 700; }
+.photo-overlay strong { font-family: Anton, Impact, sans-serif; font-size: clamp(2rem, 4vw, 4rem); }
+.photo-credit { color: rgba(255,255,255,.82); font-family: "IBM Plex Mono", monospace; font-size: .72rem; }
+
+.section { padding: 72px 6vw; }
+.dark-section { background: var(--green-900); color: white; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 34px; border-bottom: 2px solid rgba(8,55,39,.12); padding-bottom: 22px; }
+.section-heading.inverted { border-color: rgba(255,255,255,.15); }
+.section h2 { font-size: clamp(2.7rem, 6vw, 5.2rem); }
+.section-note { font-family: "IBM Plex Mono", monospace; color: var(--muted); }
+.section-note.light { color: #a9b7b0; }
+
+.game-list { display: grid; gap: 24px; }
+.game-card {
+  background: var(--paper);
+  border: 2px solid rgba(214,166,25,.58);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 16px 32px rgba(30, 42, 34, .06);
+}
+.game-topline { display: flex; justify-content: space-between; gap: 16px; align-items: center; font-family: "IBM Plex Mono", monospace; font-weight: 700; font-size: 1.05rem; }
+.live-badge { background: var(--red); color: white; border-radius: 999px; padding: 9px 16px; letter-spacing: .12em; font-size: .8rem; }
+.team-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 22px; }
+.team { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.team:last-child { justify-content: flex-end; text-align: right; }
+.team-logo { width: 58px; height: 58px; border-radius: 16px; background: #eef2ee; display: grid; place-items: center; font-family: Anton, sans-serif; font-size: 1.25rem; color: var(--green-900); border: 1px solid #dfe5df; }
+.team-name { font-family: Anton, Impact, sans-serif; font-size: clamp(1.35rem, 4vw, 2.35rem); line-height: 1; }
+.score { font-family: Anton, Impact, sans-serif; font-size: 2.5rem; color: var(--green-800); white-space: nowrap; }
+.hornet-strip { margin-top: 22px; background: #edf0ea; border-radius: 16px; padding: 16px 20px; color: var(--green-800); }
+.hornet-strip strong { color: var(--gold); font-family: "IBM Plex Mono", monospace; margin-right: 8px; }
+.live-box { margin-top: 16px; background: var(--green-950); color: #efbd33; border-radius: 16px; padding: 18px 20px; font-family: "IBM Plex Mono", monospace; font-weight: 700; }
+.game-link { display: inline-block; margin-top: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 700; color: var(--green-800); }
+
+.award-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.award-card { background: #06402d; border: 1px solid rgba(214,166,25,.35); border-radius: 28px; padding: 30px; display: grid; grid-template-columns: 110px 1fr; gap: 24px; align-items: center; }
+.player-avatar { width: 110px; aspect-ratio: 1; border-radius: 50%; border: 6px solid var(--gold); background: linear-gradient(160deg,#e8e0ca,#829287); display: grid; place-items: center; color: var(--green-950); font-family: Anton, sans-serif; font-size: 2rem; }
+.award-card h3 { font-family: Anton, sans-serif; font-size: 2.5rem; margin: 6px 0; }
+.award-card p { color: #c9d5cf; line-height: 1.5; }
+.results-block { margin-top: 28px; background: #032f22; border-radius: 28px; padding: 30px; }
+.result-row { display: grid; grid-template-columns: 70px 1fr auto; gap: 18px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.12); }
+.result-row:first-of-type { border-top: 0; }
+.result-avatar { width: 62px; height: 62px; border-radius: 50%; background: #d8dfd7; color: #073c2a; display: grid; place-items: center; border: 4px solid var(--gold); font-family: Anton, sans-serif; }
+.result-name { font-family: Anton, sans-serif; font-size: 1.7rem; }
+.result-stat { color: #c9d5cf; margin-top: 5px; }
+.result-record { text-align: right; color: #efbd33; font-family: "IBM Plex Mono", monospace; font-weight: 700; }
+
+.report-section { background: #f2ede2; }
+.story-card { background: var(--paper); border: 1px solid #d7ddd7; border-radius: 30px; padding: clamp(28px, 6vw, 64px); max-width: 1050px; box-shadow: var(--shadow); }
+.story-card h3 { font-size: clamp(2.5rem, 6vw, 5.2rem); margin: 18px 0 30px; }
+.story-body { font-family: Georgia, serif; font-size: clamp(1.25rem, 2.5vw, 2rem); line-height: 1.7; }
+.story-body::first-letter { float: left; font-family: Anton, sans-serif; color: var(--green-800); font-size: 5rem; line-height: .75; padding-right: 12px; padding-top: 12px; }
+
+.video-grid, .player-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+.video-card, .player-card { background: var(--paper); border-radius: 24px; overflow: hidden; border: 1px solid #d8ded8; box-shadow: 0 12px 25px rgba(30,42,34,.05); }
+.video-thumb { aspect-ratio: 16/9; background: linear-gradient(135deg,#234f3a,#d7aa29); display: grid; place-items: center; color: white; font-family: Anton, sans-serif; font-size: 2rem; }
+.video-body, .player-body { padding: 22px; }
+.video-body h3, .player-card h3 { margin: 0 0 8px; font-size: 1.25rem; }
+.video-source, .player-meta { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .85rem; }
+.video-link { display: inline-block; margin-top: 14px; color: var(--green-800); font-weight: 800; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+.filter { border: 1px solid rgba(255,255,255,.2); background: transparent; color: white; border-radius: 999px; padding: 10px 16px; cursor: pointer; }
+.filter.active { background: #efbd33; color: #1a2a22; border-color: #efbd33; }
+.player-card { color: var(--ink); }
+.player-top { min-height: 145px; padding: 22px; background: linear-gradient(135deg,#e7ece7,#cbd6cd); display: flex; align-items: end; }
+.player-initials { width: 78px; height: 78px; border-radius: 50%; border: 5px solid var(--gold); background: var(--green-900); color: white; display: grid; place-items: center; font-family: Anton, sans-serif; font-size: 1.7rem; }
+.player-statline { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e1e5e1; font-weight: 700; }
+.about-section p { max-width: 900px; font-size: 1.15rem; line-height: 1.8; }
+code { background: #e7ebe7; padding: 3px 7px; border-radius: 6px; }
+
+footer { padding: 50px 6vw; background: var(--green-950); color: white; }
+footer strong { font-family: Anton, sans-serif; color: #efbd33; font-size: 2rem; }
+footer p { color: #c7d1cc; }
+.disclaimer { max-width: 800px; font-size: .9rem; }
+
+@media (max-width: 900px) {
+  .desktop-nav { display: none; }
+  .menu-button { display: inline-grid; place-items: center; }
+  .hero { grid-template-columns: 1fr; padding-top: 52px; }
+  .hero-photo { min-height: 430px; }
+  .award-grid, .video-grid, .player-grid { grid-template-columns: 1fr; }
+  .section-heading { align-items: start; flex-direction: column; gap: 12px; }
+}
+
+@media (max-width: 600px) {
+  .site-header { min-height: 86px; padding: 0 18px; }
+  .brand { font-size: 1.55rem; max-width: 250px; }
+  .mobile-menu { top: 86px; }
+  .hero, .section { padding-left: 22px; padding-right: 22px; }
+  .hero { padding-top: 46px; }
+  .hero h1 { font-size: 4.35rem; }
+  .hero-photo { min-height: 390px; border-radius: 26px; }
+  .section { padding-top: 54px; padding-bottom: 54px; }
+  .game-card { padding: 20px; border-radius: 24px; }
+  .team-row { gap: 10px; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); }
+  .team { gap: 8px; }
+  .team-logo { width: 46px; height: 46px; border-radius: 12px; font-size: 1rem; }
+  .team-name { font-size: 1.55rem; }
+  .score { font-size: 1.7rem; }
+  .award-card { grid-template-columns: 82px 1fr; padding: 22px; }
+  .player-avatar { width: 82px; border-width: 4px; }
+  .award-card h3 { font-size: 2rem; }
+  .results-block { padding: 22px; }
+  .result-row { grid-template-columns: 54px 1fr; }
+  .result-record { grid-column: 2; text-align: left; }
+  .result-avatar { width: 50px; height: 50px; }
+}
+
+/* Former Sacramento State Hornet emphasis */
+.alumni-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: .38rem .62rem;
+  margin-bottom: .65rem;
+  border: 1px solid #d5a900;
+  border-radius: 999px;
+  background: #fff7d6;
+  color: #043927;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+.alumni-inline {
+  color: #e6b91e;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  margin: .15rem 0 .3rem;
+}
+.former-hornet-card {
+  border: 2px solid #d5a900;
+  position: relative;
+  overflow: hidden;
+}
+.former-hornet-card::before {
+  content: "HORNET ALUM";
+  position: absolute;
+  right: -2.2rem;
+  top: 1rem;
+  transform: rotate(35deg);
+  background: #d5a900;
+  color: #043927;
+  padding: .28rem 2.4rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .62rem;
+  font-weight: 900;
+}
+.sac-state-mark {
+  color: #d5a900;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 900;
+  font-size: .72rem;
+  letter-spacing: .08em;
+}
+.empty-state {
+  border: 1px dashed rgba(4,57,39,.3);
+  border-radius: 22px;
+  padding: 1.3rem;
+  background: rgba(255,255,255,.55);
+  color: #31463e;
+}
+.empty-state strong { color: #043927; }
+.dark-section .empty-state {
+  border-color: rgba(255,255,255,.25);
+  background: rgba(255,255,255,.06);
+  color: #cbd6d1;
+}
+.dark-section .empty-state strong { color: white; }
+
+/* Individual alumni profiles */
+.profile-button { display:inline-flex; margin-top:16px; padding:10px 14px; border-radius:12px; background:var(--green-900); color:white; text-decoration:none; font-family:"IBM Plex Mono",monospace; font-size:.78rem; font-weight:800; }
+.profile-button:hover { background:var(--gold); color:var(--green-950); }
+.back-link { color:white; font-family:"IBM Plex Mono",monospace; font-weight:800; text-decoration:none; font-size:.8rem; }
+.profile-page { background:var(--cream); min-height:100vh; }
+.profile-hero { padding:72px 7vw 64px; background:linear-gradient(135deg,var(--green-950),#174c38); color:white; display:grid; grid-template-columns:180px 1fr; gap:42px; align-items:center; border-bottom:6px solid var(--gold); }
+.profile-hero h1 { font-family:Anton,sans-serif; font-size:clamp(3rem,8vw,6.4rem); line-height:.95; margin:8px 0 16px; }
+.profile-avatar-large { width:170px; aspect-ratio:1; border-radius:50%; border:8px solid var(--gold); display:grid; place-items:center; background:#f7f3e9; color:var(--green-950); font-family:Anton,sans-serif; font-size:4rem; box-shadow:0 18px 45px rgba(0,0,0,.25); }
+.profile-meta-large,.profile-years { font-family:"IBM Plex Mono",monospace; color:#d9e5df; }
+.profile-bio { max-width:780px; font-size:1.08rem; line-height:1.7; color:#f1f5f2; }
+.profile-content { padding:54px 7vw 80px; max-width:1280px; margin:auto; }
+.profile-panel { background:#fff; border:1px solid #d7ded8; border-radius:26px; padding:28px; box-shadow:0 10px 28px rgba(25,45,35,.06); }
+.profile-panel h2 { margin:5px 0 20px; font-family:Anton,sans-serif; font-size:2.2rem; letter-spacing:.01em; color:var(--green-950); }
+.season-panel { border-top:7px solid var(--gold); margin-bottom:24px; }
+.profile-two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:24px 0; }
+.stat-chip-grid { display:flex; flex-wrap:wrap; gap:10px; }
+.stat-chip { padding:11px 13px; border-radius:12px; background:#eef2ee; border:1px solid #d8dfd9; font-family:"IBM Plex Mono",monospace; font-weight:800; color:var(--green-900); }
+.awards-panel ul { margin:0; padding-left:20px; line-height:1.8; }
+.awards-panel li::marker { color:var(--gold); }
+.sources-panel { margin-top:24px; }
+.sources-panel #sourceLinks { display:flex; flex-wrap:wrap; gap:10px; }
+.sources-panel a { padding:11px 14px; border-radius:12px; background:var(--green-900); color:white; text-decoration:none; font-weight:800; }
+.data-note { margin-top:18px; color:var(--muted); font-size:.85rem; }
+@media(max-width:700px){.profile-hero{grid-template-columns:1fr;padding:48px 22px}.profile-avatar-large{width:125px;font-size:3rem}.profile-two-col{grid-template-columns:1fr}.profile-content{padding:34px 22px 60px}.back-link{font-size:.68rem}.profile-panel{padding:22px}.profile-panel h2{font-size:1.8rem}}
+
+.build-marker{margin-top:12px;font:600 12px/1.4 "IBM Plex Mono",monospace;opacity:.55;letter-spacing:.05em}
+
+/* v6 player photos + persistent latest update states */
+.player-photo, .result-photo, .profile-photo-large { object-fit: cover; object-position: center top; background:#eef2ee; display:block; }
+.player-photo { width:92px; height:92px; border-radius:50%; border:5px solid var(--gold); box-shadow:0 8px 18px rgba(4,57,39,.14); }
+.result-photo { width:62px; height:62px; border-radius:50%; border:4px solid var(--gold); }
+.award-photo { width:110px; height:110px; border-radius:50%; border:6px solid var(--gold); object-fit:cover; object-position:center top; background:#eef2ee; }
+.profile-photo-large { width:180px; height:180px; border-radius:50%; border:8px solid var(--gold); box-shadow:0 18px 45px rgba(0,0,0,.25); }
+.photo-fallback { display:none; }
+.persistence-note { margin:0 0 24px; padding:14px 18px; border:1px solid rgba(214,166,25,.45); border-radius:16px; background:rgba(214,166,25,.10); color:#f3e9bd; font-family:"IBM Plex Mono",monospace; font-size:.82rem; line-height:1.5; }
+.update-date { display:block; margin-top:5px; color:#a9b7b0; font-family:"IBM Plex Mono",monospace; font-size:.72rem; }
+.player-top { align-items:center; justify-content:space-between; }
+.player-photo-wrap { display:flex; align-items:center; gap:14px; }
+@media(max-width:700px){.award-photo{width:82px;height:82px;border-width:4px}.profile-photo-large{width:135px;height:135px}.player-photo{width:78px;height:78px}.result-photo{width:50px;height:50px}}
+
+
+/* v9 MLB scoreboard fallback */
+.mlb-fallback-banner {
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px;
+  padding:16px 20px; margin-bottom:18px; border-radius:18px;
+  background:#e8eee9; border:1px solid #cad6ce; color:var(--green-900);
+  font-family:"IBM Plex Mono",monospace; font-size:.82rem;
+}
+.mlb-fallback-banner strong { color:var(--green-950); }
+.mlb-fallback-banner #mlbRefreshStamp { margin-left:auto; color:var(--muted); }
+.scoreboard-loading { padding:28px; border:1px dashed rgba(4,57,39,.3); border-radius:22px; color:var(--green-900); background:rgba(255,255,255,.55); }
+.final-badge { border-radius:999px; padding:8px 13px; background:#66746d; color:white; font-family:"IBM Plex Mono",monospace; font-weight:800; font-size:.76rem; }
+.mlb-score-card .team-logo { overflow:hidden; }
+.mlb-logo img { width:82%; height:82%; object-fit:contain; display:block; }
+.mlb-logo span { display:none; place-items:center; width:100%; height:100%; }
+.scoreboard-meta { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 20px; padding:14px 0 4px; border-top:1px solid #d9ded9; color:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:.76rem; }
+@media(max-width:600px){
+  .mlb-fallback-banner { align-items:flex-start; flex-direction:column; }
+  .mlb-fallback-banner #mlbRefreshStamp { margin-left:0; }
+  .mlb-score-card .team-name { font-size:1.25rem; line-height:1.05; }
+  .mlb-score-card .score { font-size:1.45rem; }
+}
+\n\n/* v10 persistent awards + compact MLB scoreboard */\n.award-card { min-height: 330px; align-items:start; }\n.award-copy { min-width:0; }\n.award-team { margin:8px 0 0; font-weight:800; }\n.award-date { margin:4px 0 12px !important; color:#efbd33 !important; font:700 .76rem/1.4 "IBM Plex Mono",monospace; }\n.award-article { margin:0 0 12px; font-size:.98rem; line-height:1.55 !important; }\n.award-score { font-size:.84rem; margin:8px 0; }\n\n/* Keep the MLB fallback useful without letting it dominate the page. */\n#live .game-list:has(.mlb-score-card) {\n  display:grid;\n  grid-template-columns:repeat(2,minmax(0,1fr));\n  gap:12px;\n}\n#live .game-list:has(.mlb-score-card) .mlb-fallback-banner { grid-column:1 / -1; margin-bottom:2px; padding:10px 14px; font-size:.72rem; border-radius:12px; }\n.mlb-score-card { padding:14px 16px; border-radius:18px; box-shadow:none; }\n.mlb-score-card .game-topline { font-size:.72rem; gap:8px; }\n.mlb-score-card .live-badge, .mlb-score-card .final-badge { padding:5px 8px; font-size:.58rem; }\n.mlb-score-card .team-row { gap:8px; padding:12px 0; margin-top:10px; }\n.mlb-score-card .team { gap:8px; }\n.mlb-score-card .team-logo { width:34px; height:34px; min-width:34px; border-radius:9px; }\n.mlb-score-card .team-name { font-family:"IBM Plex Sans",Arial,sans-serif; font-size:.9rem; font-weight:800; line-height:1.1; }\n.mlb-score-card .score { font-size:1.15rem; }\n.mlb-score-card .scoreboard-meta { padding:8px 0 0; gap:6px 10px; font-size:.62rem; }\n.mlb-score-card .game-link { margin-top:9px; font-size:.66rem; }\n@media(max-width:760px){\n  #live .game-list:has(.mlb-score-card){grid-template-columns:1fr;}\n  .mlb-score-card{padding:12px 14px;}\n  .mlb-score-card .team-name{font-size:.82rem;}\n  .award-card{min-height:0;}\n}\n
+
+/* v11 ultra-compact MLB scoreboard: four games / eight teams in roughly one old-card footprint */
+#live .game-list.mlb-scoreboard-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+#live .game-list.mlb-scoreboard-grid .mlb-fallback-banner,
+#live .game-list.mlb-scoreboard-grid .scoreboard-loading,
+#live .game-list.mlb-scoreboard-grid .empty-state {
+  grid-column:1 / -1;
+}
+#live .game-list.mlb-scoreboard-grid .mlb-fallback-banner {
+  margin-bottom:2px;
+  padding:8px 12px;
+  min-height:0;
+  font-size:.68rem;
+  border-radius:12px;
+}
+.mlb-mini-card {
+  background:var(--paper);
+  border:1px solid rgba(214,166,25,.62);
+  border-radius:14px;
+  padding:9px 11px 10px;
+  min-width:0;
+  box-shadow:none;
+}
+.mlb-mini-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  min-height:20px;
+  padding-bottom:6px;
+  border-bottom:1px solid var(--line);
+  color:var(--green-900);
+  font:700 .62rem/1.15 "IBM Plex Mono",monospace;
+  white-space:nowrap;
+  overflow:hidden;
+}
+.mlb-mini-top > span:first-child { overflow:hidden; text-overflow:ellipsis; }
+.mini-status {
+  flex:0 0 auto;
+  padding:3px 6px;
+  border-radius:999px;
+  font:800 .52rem/1 "IBM Plex Mono",monospace;
+  letter-spacing:.05em;
+}
+.mini-status.live { background:var(--red); color:white; }
+.mini-status.final { background:var(--green-900); color:white; }
+.mini-status.scheduled { background:#e9ede8; color:var(--green-800); }
+.mlb-mini-matchup { display:grid; gap:3px; padding-top:6px; }
+.mlb-mini-team {
+  display:grid;
+  grid-template-columns:24px minmax(0,1fr) auto;
+  align-items:center;
+  gap:7px;
+  min-width:0;
+  min-height:28px;
+}
+.mlb-mini-logo {
+  width:24px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  border-radius:6px;
+  background:#eef2ee;
+  overflow:hidden;
+  border:1px solid #e0e5e0;
+  font:700 .55rem/1 "IBM Plex Mono",monospace;
+}
+.mlb-mini-logo img { width:20px; height:20px; object-fit:contain; }
+.mlb-mini-logo span { display:none; place-items:center; width:100%; height:100%; }
+.mlb-mini-name {
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font:800 .78rem/1.05 "IBM Plex Sans",Arial,sans-serif;
+}
+.mlb-mini-score {
+  min-width:20px;
+  text-align:right;
+  color:var(--green-800);
+  font:400 1.05rem/1 Anton,Impact,sans-serif;
+}
+@media (min-width:1180px) {
+  #live .game-list.mlb-scoreboard-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@media (max-width:620px) {
+  #live .game-list.mlb-scoreboard-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
+  .mlb-mini-card { padding:7px 8px 8px; border-radius:11px; }
+  .mlb-mini-top { font-size:.52rem; }
+  .mlb-mini-team { grid-template-columns:20px minmax(0,1fr) auto; gap:5px; min-height:24px; }
+  .mlb-mini-logo { width:20px; height:20px; }
+  .mlb-mini-logo img { width:17px; height:17px; }
+  .mlb-mini-name { font-size:.66rem; }
+  .mlb-mini-score { font-size:.92rem; min-width:16px; }
+  .mini-status { font-size:.45rem; padding:3px 5px; }
+}
+@media (max-width:390px) {
+  #live .game-list.mlb-scoreboard-grid { grid-template-columns:1fr; }
+}
+
+
+/* v12 CBS-inspired compact scoreboard tiles */
+#live .game-list.mlb-scoreboard-grid {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;
+  background:#3a3a3a;
+  border-radius:16px;
+  overflow:hidden;
+}
+#live .game-list.mlb-scoreboard-grid .mlb-fallback-banner,
+#live .game-list.mlb-scoreboard-grid .scoreboard-loading,
+#live .game-list.mlb-scoreboard-grid .empty-state {
+  grid-column:1 / -1;
+  border-radius:0;
+  margin:0;
+}
+.cbs-score-tile {
+  display:block;
+  min-width:0;
+  min-height:148px;
+  padding:13px 16px 12px;
+  background:#202020;
+  color:#fff;
+  text-decoration:none;
+  transition:background .16s ease, transform .16s ease;
+}
+.cbs-score-tile:hover,
+.cbs-score-tile:focus-visible { background:#292929; outline:none; }
+.cbs-score-tile:active { transform:scale(.995); }
+.cbs-score-head {
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:8px;
+  min-height:24px;
+  margin-bottom:8px;
+  color:#4b8fff;
+  font:800 .83rem/1.1 "IBM Plex Mono",monospace;
+}
+.cbs-live-label { justify-self:end; color:#c8c8c8; font-size:.62rem; letter-spacing:.05em; }
+.cbs-bases { display:flex; gap:2px; align-items:center; }
+.base-diamond { width:9px; height:9px; transform:rotate(45deg); background:#666; display:inline-block; }
+.base-diamond.on { background:#2e7df6; }
+.cbs-team-line {
+  display:grid;
+  grid-template-columns:31px auto 1fr auto;
+  align-items:center;
+  gap:8px;
+  min-height:43px;
+}
+.cbs-team-line img { width:29px; height:29px; object-fit:contain; }
+.cbs-team-code { font:800 1.35rem/1 "IBM Plex Sans",Arial,sans-serif; letter-spacing:-.03em; }
+.cbs-record { color:#d3d3d3; font:400 .76rem/1 "IBM Plex Sans",Arial,sans-serif; }
+.cbs-score { justify-self:end; font:800 1.35rem/1 "IBM Plex Sans",Arial,sans-serif; }
+.cbs-count { margin-top:5px; color:#c7c7c7; font:400 .72rem/1.2 "IBM Plex Sans",Arial,sans-serif; }
+@media (min-width:1180px){
+  #live .game-list.mlb-scoreboard-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:620px){
+  #live .game-list.mlb-scoreboard-grid{grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; border-radius:10px;}
+  .cbs-score-tile{min-height:126px;padding:10px 10px 9px;}
+  .cbs-score-head{font-size:.65rem;gap:4px;margin-bottom:5px;}
+  .cbs-team-line{grid-template-columns:24px auto 1fr auto;gap:5px;min-height:35px;}
+  .cbs-team-line img{width:22px;height:22px;}
+  .cbs-team-code,.cbs-score{font-size:1rem;}
+  .cbs-record{font-size:.58rem;}
+  .cbs-count{font-size:.6rem;}
+  .base-diamond{width:7px;height:7px;}
+}
+@media (max-width:390px){
+  #live .game-list.mlb-scoreboard-grid{grid-template-columns:1fr;}
+}
+
+/* v13 NCAA Division I baseball scoreboard — same compact tablet language as MLB */
+.college-scoreboard-section { padding-top:34px; }
+.college-scoreboard-banner {
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 18px;
+  margin:0 0 10px; padding:9px 14px; border:1px solid rgba(4,57,39,.18);
+  border-radius:12px; background:#e8eeea; color:var(--green-900);
+  font:600 .7rem/1.35 "IBM Plex Mono",monospace;
+}
+.college-scoreboard-grid {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px;
+  overflow:hidden; border-radius:12px; background:#363636;
+}
+.college-scoreboard-grid .scoreboard-loading,
+.college-scoreboard-grid .empty-state { grid-column:1/-1; margin:0; border-radius:0; }
+.college-score-tile { border-color:#3b3b3b; }
+.college-score-tile .cbs-live-label { max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.college-live-dot { color:#4f8df7; font-size:.72rem; text-align:center; }
+.college-logo-fallback { width:29px; height:29px; display:block; }
+@media(min-width:1200px){ .college-scoreboard-grid{grid-template-columns:repeat(4,minmax(0,1fr));} }
+@media(max-width:760px){
+  .college-scoreboard-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .college-scoreboard-banner{font-size:.62rem;}
+}
+@media(max-width:390px){ .college-scoreboard-grid{grid-template-columns:1fr;} }
+
+/* v14 clickable award stories */
+.award-card { padding:0; overflow:hidden; }
+.award-card-link {
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:24px;
+  align-items:center;
+  width:100%;
+  min-height:100%;
+  padding:30px;
+  color:inherit;
+  text-decoration:none;
+}
+.award-card-link:hover,
+.award-card-link:focus-visible { background:rgba(255,255,255,.035); outline:none; }
+.award-card-link:focus-visible { box-shadow:inset 0 0 0 3px var(--gold); }
+.award-read-link { display:inline-flex; margin-top:4px; }
+.compact-note { padding:10px 14px; font-size:.72rem; }
+.article-page { background:#f6f0e4; color:#082d21; }
+.article-shell { width:min(900px, calc(100% - 32px)); margin:0 auto; padding:48px 0 80px; }
+.article-back { display:inline-block; margin-bottom:28px; color:#07543c; font:700 .78rem/1.4 "IBM Plex Mono",monospace; text-decoration:none; }
+.article-hero { background:#06402d; color:#fff; border-radius:28px; padding:34px; display:grid; grid-template-columns:130px 1fr; gap:28px; align-items:center; }
+.article-hero h1 { font-family:Anton,sans-serif; font-size:clamp(2.5rem,7vw,5rem); line-height:.98; margin:8px 0 10px; }
+.article-photo { width:130px; height:130px; border-radius:50%; border:6px solid var(--gold); object-fit:cover; object-position:center top; background:#eef2ee; }
+.article-deck { color:#cbd8d1; font-size:1.05rem; line-height:1.6; margin:0; }
+.article-meta { color:#efbd33; font:700 .78rem/1.5 "IBM Plex Mono",monospace; margin-top:12px; }
+.article-body { background:#fffdf8; border:1px solid #d9d8cf; border-radius:24px; padding:34px; margin-top:24px; }
+.article-body p { font-size:1.08rem; line-height:1.8; margin:0 0 20px; }
+.article-body h2 { font-family:Anton,sans-serif; font-size:2rem; margin:32px 0 12px; }
+.article-stat-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:18px 0 26px; }
+.article-stat { background:#edf1ec; border-radius:14px; padding:14px; font:700 .8rem/1.4 "IBM Plex Mono",monospace; }
+.article-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; }
+@media(max-width:700px){
+  .award-card-link{grid-template-columns:82px 1fr;padding:22px;gap:18px;}
+  .article-hero{grid-template-columns:1fr;text-align:left;padding:26px;}
+  .article-photo{width:110px;height:110px;}
+  .article-stat-grid{grid-template-columns:1fr 1fr;}
+}
+
+/* v15 recruiting hub */
+.nav-active { color: #f5c94a !important; }
+.recruit-hero {
+  padding: 76px 6vw 84px;
+  background: linear-gradient(115deg, #043927 0%, #0b513a 58%, #2c4d31 100%);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: center;
+}
+.recruit-hero h1 {
+  margin: 16px 0 24px;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+  line-height: .9;
+  text-transform: uppercase;
+}
+.recruit-hero-copy { max-width: 760px; font-size: clamp(1.15rem, 2vw, 1.65rem); line-height: 1.65; color: #d9e1dc; }
+.recruit-pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.recruit-pill-row span, .recruit-status {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 800;
+  letter-spacing: .08em;
+  font-size: .75rem;
+  border: 1px solid rgba(239,189,51,.75);
+  color: #efbd33;
+  border-radius: 999px;
+  padding: 9px 12px;
+}
+.recruit-hero-panel {
+  background: rgba(2,38,28,.72);
+  border: 1px solid rgba(239,189,51,.45);
+  border-radius: 30px;
+  padding: clamp(28px, 5vw, 52px);
+  box-shadow: var(--shadow);
+}
+.recruit-hero-panel strong { display: block; font-family: Anton, Impact, sans-serif; font-size: clamp(2.6rem, 5vw, 5rem); line-height: .95; margin: 14px 0 22px; }
+.recruit-hero-panel p:last-child { color: #c9d5cf; line-height: 1.7; }
+.recruit-controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.recruit-filter { border: 1px solid #c9d2cb; background: #fffdf8; color: #043927; border-radius: 999px; padding: 10px 16px; font-weight: 800; }
+.recruit-filter.active { background: #043927; color: #fff; border-color: #043927; }
+.recruit-empty-state { border: 2px dashed #c6d0c9; background: #fffdf8; border-radius: 28px; padding: clamp(32px, 6vw, 70px); text-align: center; }
+.recruit-empty-state h3 { font-family: Anton, Impact, sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); margin: 12px 0 18px; }
+.recruit-empty-state p:last-child { max-width: 850px; margin: 0 auto; color: #607068; line-height: 1.75; }
+.recruit-profile-demo { display: grid; grid-template-columns: 300px 1fr; gap: 34px; align-items: stretch; background: #063e2c; border: 1px solid rgba(239,189,51,.35); border-radius: 30px; padding: 30px; }
+.recruit-photo-placeholder { min-height: 320px; display: grid; place-items: center; border-radius: 22px; background: linear-gradient(145deg,#d9dfd8,#789182); color: #043927; font-family: Anton, sans-serif; font-size: 3rem; }
+.recruit-profile-copy h3 { font-family: Anton, Impact, sans-serif; font-size: clamp(3rem, 6vw, 5.5rem); margin: 18px 0 8px; }
+.recruit-subline { color: #c9d5cf; font-family: "IBM Plex Mono", monospace; }
+.recruit-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+.recruit-stat-grid div { background: #032f22; border-radius: 16px; padding: 16px; }
+.recruit-stat-grid span { display: block; color: #9db0a7; font-family: "IBM Plex Mono", monospace; font-size: .7rem; letter-spacing: .08em; }
+.recruit-stat-grid strong { display: block; color: #efbd33; font-size: 1.35rem; margin-top: 8px; }
+.recruit-note { color: #c9d5cf; line-height: 1.7; }
+.roadmap-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+.roadmap-grid article { background: #fffdf8; border: 1px solid #d8ded8; border-radius: 22px; padding: 24px; }
+.roadmap-grid article > strong { font-family: "IBM Plex Mono", monospace; color: #d6a619; }
+.roadmap-grid h3 { font-size: 1.25rem; margin-bottom: 8px; }
+.roadmap-grid p { color: #65736c; line-height: 1.6; }
+@media (max-width: 900px) {
+  .recruit-hero { grid-template-columns: 1fr; }
+  .recruit-profile-demo { grid-template-columns: 1fr; }
+  .recruit-photo-placeholder { min-height: 280px; }
+  .roadmap-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .recruit-hero { padding: 48px 22px 56px; }
+  .recruit-hero h1 { font-size: 4.5rem; }
+  .recruit-stat-grid { grid-template-columns: 1fr 1fr; }
+  .roadmap-grid { grid-template-columns: 1fr; }
+  .recruit-profile-demo { padding: 20px; }
+}
+
+
+/* v16 recruits: official Sacramento State program source card */
+.program-source-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.program-card-copy {
+  margin: 0;
+  opacity: .88;
+  line-height: 1.55;
+}
+.program-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+.program-facts > div {
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255,255,255,.06);
+}
+.program-facts span {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: #f6c646;
+  margin-bottom: 5px;
+}
+.program-facts strong {
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem;
+  line-height: 1.25;
+}
+.program-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.program-links a {
+  text-decoration: none;
+  border: 1px solid rgba(246,198,70,.7);
+  border-radius: 999px;
+  padding: 8px 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  color: #f6c646;
+}
+.program-links a:hover, .program-links a:focus-visible {
+  background: #f6c646;
+  color: #043927;
+}
+.program-source-note {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  opacity: .68;
+}
+@media (max-width: 640px) {
+  .program-facts { grid-template-columns: 1fr; }
+}
+
+
+/* v17 recruits/program hub: staff photos + field/campus gallery */
+.program-hero-v17 { min-height: 560px; }
+.hero-links { margin-top: 28px; }
+.hero-links a { background: rgba(2,38,28,.34); }
+.staff-section-v17 { background: #f4efe3; }
+.staff-official-link { color: #0b513a; text-decoration: none; font-weight: 800; }
+.coach-grid-v17 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 18px;
+}
+.coach-card-v17 {
+  display: block;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fffdf8;
+  border: 1px solid #d5ddd6;
+  text-decoration: none;
+  color: #082b20;
+  box-shadow: 0 12px 26px rgba(3,31,23,.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.coach-card-v17:hover, .coach-card-v17:focus-visible { transform: translateY(-4px); box-shadow: 0 18px 34px rgba(3,31,23,.14); }
+.coach-card-v17 img { width: 100%; aspect-ratio: 4 / 4.5; object-fit: cover; object-position: center top; display: block; background: #e7e7df; }
+.coach-card-v17 .staff-group-photo-v17 { object-position: center center; }
+.coach-card-copy-v17 { padding: 18px; }
+.coach-card-copy-v17 span { font: 700 .68rem/1.35 'IBM Plex Mono', monospace; letter-spacing: .08em; color: #bd8e0e; }
+.coach-card-copy-v17 h3 { font-family: Anton, Impact, sans-serif; font-size: 2rem; line-height: 1; margin: 8px 0 10px; }
+.coach-card-copy-v17 p { color: #66736d; line-height: 1.5; margin: 0; font-size: .9rem; }
+.facilities-section-v17 { padding-top: 72px; }
+.facility-gallery-v17 { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; }
+.facility-card-v17 { position: relative; min-height: 470px; border-radius: 28px; overflow: hidden; display: block; border: 1px solid rgba(246,198,70,.35); color: #fff; }
+.facility-card-v17 img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform .35s ease; }
+.facility-card-v17:hover img, .facility-card-v17:focus-visible img { transform: scale(1.035); }
+.facility-overlay-v17 { position: absolute; inset: auto 0 0; padding: 70px 28px 28px; background: linear-gradient(transparent, rgba(2,38,28,.96)); }
+.facility-overlay-v17 span { font: 700 .72rem/1.2 'IBM Plex Mono', monospace; color: #f5c94a; letter-spacing: .1em; }
+.facility-overlay-v17 h3 { font-family: Anton, Impact, sans-serif; font-size: clamp(2.4rem, 4vw, 4.5rem); line-height: .95; margin: 8px 0 10px; }
+.facility-overlay-v17 p { color: #d8e1dc; margin: 0; }
+.program-links-section-v17 { background: #f4efe3; }
+.official-grid-v17 a { background: #fffdf8; border: 1px solid #d8ded8; border-radius: 22px; padding: 24px; text-decoration: none; color: inherit; }
+.official-grid-v17 a > strong { font-family: 'IBM Plex Mono', monospace; color: #d6a619; }
+.official-grid-v17 a:hover, .official-grid-v17 a:focus-visible { border-color: #c99a17; transform: translateY(-2px); }
+.official-grid-v17 h3 { font-size: 1.25rem; margin-bottom: 8px; }
+.official-grid-v17 p { color: #65736c; line-height: 1.6; }
+@media (max-width: 1100px) { .coach-grid-v17 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 800px) {
+  .coach-grid-v17 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .facility-gallery-v17 { grid-template-columns: 1fr; }
+  .facility-card-v17 { min-height: 380px; }
+}
+@media (max-width: 560px) {
+  .coach-grid-v17 { grid-template-columns: 1fr; }
+  .coach-card-v17 { display: grid; grid-template-columns: 120px 1fr; }
+  .coach-card-v17 img { height: 100%; aspect-ratio: auto; }
+  .coach-card-copy-v17 h3 { font-size: 1.7rem; }
+  .facility-card-v17 { min-height: 320px; }
+}
+
+/* v18 Player Development Technology */
+.tech-section-v18{background:#f4f0e6;color:#062c20}.tech-intro-v18{display:grid;grid-template-columns:.9fr 1.4fr;gap:34px;align-items:start;margin:28px 0 52px}.tech-intro-v18>p{font-size:1.12rem;line-height:1.75;max-width:720px}.workflow-v18{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid rgba(6,44,32,.18);border-radius:24px;overflow:hidden;background:#fff}.workflow-v18 div{padding:20px 16px;min-height:145px;border-right:1px solid rgba(6,44,32,.13)}.workflow-v18 div:last-child{border-right:0}.workflow-v18 strong{font-family:'IBM Plex Mono',monospace;color:#c99900;font-size:1.5rem}.workflow-v18 span{display:block;font-family:'IBM Plex Mono',monospace;font-weight:800;letter-spacing:.09em;margin:8px 0}.workflow-v18 p{font-size:.82rem;line-height:1.45;color:#54635e}.tech-group-v18{margin-top:54px}.tech-group-heading-v18{max-width:950px;margin-bottom:26px}.tech-group-heading-v18 h3,.tech-summary-v18 h3{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,5vw,4.8rem);line-height:.98;margin:8px 0 16px}.tech-group-heading-v18>p:last-child{font-size:1.05rem;line-height:1.7;max-width:850px}.tech-grid-v18{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.tech-card-v18{background:#fff;border:1px solid rgba(6,44,32,.16);border-radius:28px;overflow:hidden;box-shadow:0 12px 30px rgba(6,44,32,.06)}.tech-card-v18>img{width:100%;height:300px;object-fit:cover;background:#e7e9e4}.tech-card-body-v18{padding:26px}.tech-tag-v18{display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:800;font-size:.76rem;letter-spacing:.08em;color:#c59600;margin-bottom:10px}.tech-card-v18 h4{font-family:'Anton',sans-serif;font-size:2.25rem;line-height:1;margin:0 0 14px}.tech-card-v18 p{line-height:1.65;color:#334a43}.tech-card-v18 ul{margin:18px 0 22px;padding-left:20px}.tech-card-v18 li{margin:10px 0;line-height:1.55;color:#263e37}.tech-card-v18 li strong{color:#063d2c}.tech-metrics-v18{display:flex;flex-wrap:wrap;gap:8px}.tech-metrics-v18 span{font-family:'IBM Plex Mono',monospace;font-size:.74rem;font-weight:700;background:#edf1eb;border:1px solid #d9e0da;border-radius:999px;padding:7px 10px;color:#16533e}.pitcher-group-v18{margin-top:72px;padding-top:54px;border-top:2px solid rgba(6,44,32,.12)}.tech-summary-v18{margin-top:46px;background:#043927;color:white;border-radius:28px;padding:38px;max-width:100%}.tech-summary-v18 p:last-child{max-width:1050px;line-height:1.75;color:#d7e1dc;font-size:1.05rem}
+@media(max-width:980px){.tech-intro-v18{grid-template-columns:1fr}.workflow-v18{grid-template-columns:repeat(2,1fr)}.workflow-v18 div{border-bottom:1px solid rgba(6,44,32,.13)}.tech-grid-v18{grid-template-columns:1fr}.tech-card-v18>img{height:260px}}
+@media(max-width:600px){.workflow-v18{grid-template-columns:1fr}.workflow-v18 div{min-height:auto;border-right:0}.tech-card-body-v18{padding:20px}.tech-card-v18 h4{font-size:1.9rem}.tech-card-v18>img{height:220px}.tech-summary-v18{padding:26px}}
+
+
+/* v19 program identity, coach stories, field gallery */
+.identity-section-v19{background:#fffdf8}.identity-grid-v19{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px}.identity-card-v19{border:1px solid #d8ded8;border-radius:24px;padding:28px;background:#f4efe3;color:#062c20}.identity-card-v19 h3{font:3rem/.95 Anton,sans-serif;margin:10px 0 14px}.identity-card-v19 p{line-height:1.65;color:#4c5f57}.identity-card-v19 a{color:#0b5a41;font-weight:800}.identity-kicker-v19{font:800 .72rem/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#c39716}.bigwest-card-v19{background:#073d2c;color:#fff;border-color:#c59a1a}.bigwest-card-v19 p{color:#d9e3de}.bigwest-card-v19 a{color:#f6c646}.sponsor-card-v19{display:flex;flex-direction:column;justify-content:center;min-height:230px}.identity-note-v19{font:.75rem/1.5 'IBM Plex Mono',monospace;color:#738078;margin-top:14px}.coach-grid-v19{grid-template-columns:repeat(5,minmax(0,1fr))}.coach-story-card-v19 b{display:block;margin-top:14px;color:#0b5a41;font-family:'IBM Plex Mono',monospace;font-size:.75rem}.field-detail-link-v19{text-decoration:none}.field-feature-v19{display:grid;grid-template-columns:1.25fr .75fr;background:#082f24;border:1px solid rgba(246,198,70,.45);border-radius:28px;overflow:hidden;color:white;text-decoration:none}.field-feature-v19>img{width:100%;height:520px;object-fit:cover}.field-feature-v19>div{padding:42px;display:flex;flex-direction:column;justify-content:center}.field-feature-v19 span{font:800 .72rem/1.3 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#f6c646}.field-feature-v19 h3{font:clamp(3rem,6vw,6rem)/.92 Anton,sans-serif;margin:14px 0}.field-feature-v19 p{line-height:1.7;color:#d7e2dd}.field-feature-v19 strong{margin-top:16px;color:#f6c646}.field-photo-grid-v19{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.field-photo-grid-v19 img{width:100%;height:220px;object-fit:cover;border-radius:18px;border:1px solid rgba(246,198,70,.35);background:#0a2f24}.duraedge-story-v19{display:grid;grid-template-columns:.8fr 1.2fr;gap:26px;margin-top:34px;padding:34px;border:1px solid rgba(246,198,70,.35);border-radius:28px;background:#052c21}.duraedge-story-v19 h3{font:4rem/.95 Anton,sans-serif;margin:8px 0}.duraedge-story-v19 p{line-height:1.7;color:#d7e2dd}.mlb-duraedge-v19{border-left:1px solid rgba(255,255,255,.18);padding-left:28px}.mlb-duraedge-v19 h4{font:2.2rem/1 Anton,sans-serif;margin:0 0 14px;color:#f6c646}.mlb-duraedge-v19 a{color:#f6c646;font-weight:800}.campus-feature-v19{display:grid;grid-template-columns:.75fr 1.25fr;gap:0;margin-top:28px;border-radius:28px;overflow:hidden;background:#163e31}.campus-feature-v19 img{width:100%;height:340px;object-fit:cover}.campus-feature-v19>div{padding:36px}.campus-feature-v19 h3{font:3rem/.95 Anton,sans-serif;margin:8px 0}.campus-feature-v19 p{color:#d7e2dd;line-height:1.65}.coach-article-main-v19{background:#f4efe3;min-height:100vh;padding:48px max(24px,6vw) 90px}.article-back-v19{display:inline-block;margin-bottom:24px;color:#0b5a41;font:800 .82rem 'IBM Plex Mono',monospace;text-decoration:none}.coach-article-v19{max-width:1150px;margin:auto}.coach-article-hero-v19{display:grid;grid-template-columns:380px 1fr;background:#043927;color:#fff;border-radius:32px;overflow:hidden}.coach-article-hero-v19 img{width:100%;height:100%;min-height:520px;object-fit:cover;object-position:top}.coach-article-hero-v19>div{padding:46px}.coach-article-hero-v19 h1{font:clamp(4rem,8vw,8rem)/.9 Anton,sans-serif;margin:12px 0}.coach-article-hero-v19 h2{font:1.1rem/1.4 'IBM Plex Mono',monospace;color:#f6c646;letter-spacing:.04em}.coach-article-hero-v19 p:last-child{font-size:1.08rem;line-height:1.75;color:#d7e2dd}.coach-article-copy-v19{max-width:820px;margin:36px auto 0;background:#fffdf8;padding:42px;border-radius:26px}.coach-article-copy-v19>p{font-size:1.06rem;line-height:1.8;color:#243a33}.coach-source-v19{margin-top:30px;padding-top:24px;border-top:1px solid #d8ded8}.coach-source-v19 span{display:block;font:.72rem 'IBM Plex Mono',monospace;color:#b68a13;margin-bottom:8px}.coach-source-v19 a{color:#0b5a41;font-weight:800}
+@media(max-width:1100px){.identity-grid-v19{grid-template-columns:1fr 1fr}.bigwest-card-v19{grid-column:1/-1}.coach-grid-v19{grid-template-columns:repeat(3,1fr)}.field-photo-grid-v19{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.identity-grid-v19,.field-feature-v19,.duraedge-story-v19,.campus-feature-v19,.coach-article-hero-v19{grid-template-columns:1fr}.coach-grid-v19{grid-template-columns:1fr 1fr}.field-feature-v19>img{height:320px}.field-feature-v19>div{padding:28px}.field-photo-grid-v19 img{height:150px}.mlb-duraedge-v19{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding:24px 0 0}.coach-article-hero-v19 img{min-height:360px;height:400px}.coach-article-hero-v19>div{padding:30px}}
+@media(max-width:520px){.coach-grid-v19{grid-template-columns:1fr}.field-photo-grid-v19{grid-template-columns:1fr 1fr}.coach-article-copy-v19{padding:26px}}
+
+/* v20 Prospect Camp + Draft Legacy */
+.camp-hero-v20{padding:72px 6vw 78px;background:linear-gradient(115deg,#043927 0%,#0b513a 62%,#2c4d31 100%);color:#fff;display:grid;grid-template-columns:1fr .85fr;gap:38px;align-items:center}.camp-hero-copy-v20 h1{font:clamp(5rem,10vw,9rem)/.88 Anton,sans-serif;margin:14px 0 24px}.camp-hero-copy-v20>p:not(.eyebrow):not(.camp-small-v20){font-size:clamp(1.1rem,2vw,1.4rem);line-height:1.7;color:#d9e3de;max-width:760px}.camp-cta-row-v20{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 14px}.camp-cta-row-v20 a,.camp-final-v20>a{display:inline-block;text-decoration:none;font:800 .8rem 'IBM Plex Mono',monospace;letter-spacing:.05em;border-radius:999px;padding:14px 18px}.camp-primary-v20{background:#f5c94a;color:#043927}.camp-secondary-v20{border:1px solid rgba(245,201,74,.7);color:#f5c94a}.camp-small-v20{font:.75rem/1.5 'IBM Plex Mono',monospace;color:#aebfb6}.camp-field-photo-v20{position:relative;min-height:520px;border-radius:30px;overflow:hidden;border:1px solid rgba(245,201,74,.45);color:white}.camp-field-photo-v20 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.camp-field-photo-v20 div{position:absolute;inset:auto 0 0;padding:90px 28px 28px;background:linear-gradient(transparent,rgba(2,38,28,.98))}.camp-field-photo-v20 span,.camp-field-photo-v20 small{display:block;font:800 .72rem 'IBM Plex Mono',monospace;color:#f5c94a;letter-spacing:.08em}.camp-field-photo-v20 strong{display:block;font:clamp(2.8rem,5vw,5rem)/.95 Anton,sans-serif;margin:8px 0}.camp-feature-grid-v20{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.camp-feature-grid-v20 article{background:#fffdf8;border:1px solid #d6ddd7;border-radius:22px;padding:24px}.camp-feature-grid-v20 span{font:800 1rem 'IBM Plex Mono',monospace;color:#c79b1a}.camp-feature-grid-v20 h3{font:2rem/1 Anton,sans-serif;margin:14px 0}.camp-feature-grid-v20 p{color:#53645c;line-height:1.65}.camp-compliance-v20{margin-top:18px;border-left:4px solid #d2a51d;background:#f0eee5;padding:18px 20px;border-radius:0 14px 14px 0;font:.78rem/1.6 'IBM Plex Mono',monospace;color:#526159}.draft-legacy-v20{background:#043927}.draft-stat-grid-v20{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.draft-stat-grid-v20 article{background:#073326;border:1px solid rgba(245,201,74,.3);border-radius:22px;padding:25px}.draft-stat-grid-v20 strong{display:block;font:3.6rem/.95 Anton,sans-serif;color:#f5c94a}.draft-stat-grid-v20 span{display:block;font:800 .72rem 'IBM Plex Mono',monospace;letter-spacing:.1em;margin:6px 0 12px;color:#fff}.draft-stat-grid-v20 p{color:#cbd8d2;line-height:1.6;margin:0}.draft-headliners-v20{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}.draft-headline-card-v20{display:grid;grid-template-columns:95px 1fr;gap:20px;align-items:center;background:#0a3e2f;border-radius:22px;padding:22px;border:1px solid rgba(255,255,255,.1)}.draft-number-v20{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:#f5c94a;color:#043927;font:2.5rem Anton,sans-serif}.draft-headline-card-v20 span{font:700 .68rem 'IBM Plex Mono',monospace;color:#f5c94a}.draft-headline-card-v20 h3{font:2.6rem/.95 Anton,sans-serif;margin:7px 0;color:white}.draft-headline-card-v20 p{color:#cbd8d2;line-height:1.55;margin:0}.recent-draft-v20{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;margin-top:32px;padding:30px;border-radius:24px;background:#fffdf8;color:#043927}.recent-draft-v20 h3{font:3.2rem/.95 Anton,sans-serif;margin:8px 0 12px}.recent-draft-v20>div>p:last-child{line-height:1.65;color:#53645c}.recent-pick-grid-v20{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.recent-pick-grid-v20 article{background:#e9eee9;border-radius:18px;padding:18px}.recent-pick-grid-v20 span{font:800 .7rem 'IBM Plex Mono',monospace;color:#ad8210}.recent-pick-grid-v20 strong{display:block;font:1.7rem Anton,sans-serif;margin:8px 0}.recent-pick-grid-v20 p{font-size:.88rem;color:#53645c}.draft-table-section-v20{background:#f4efe3}.draft-source-link-v20{text-decoration:none;color:#0b5a41;font-weight:800}.draft-table-wrap-v20{overflow:auto;border-radius:20px;border:1px solid #d5ddd6;background:#fffdf8}.draft-table-v20{width:100%;border-collapse:collapse;min-width:760px}.draft-table-v20 th{background:#043927;color:#fff;text-align:left;padding:14px 16px;font:800 .72rem 'IBM Plex Mono',monospace;letter-spacing:.08em}.draft-table-v20 td{padding:13px 16px;border-bottom:1px solid #e0e5e0;font-size:.9rem}.draft-table-v20 tbody tr:nth-child(even){background:#f2f4ef}.draft-table-v20 td:first-child,.draft-table-v20 td:last-child{font-family:'IBM Plex Mono',monospace;font-weight:700}.draft-footnote-v20{font:.72rem/1.6 'IBM Plex Mono',monospace;color:#69766f}.camp-final-v20{background:#082f24;color:#fff;display:flex;justify-content:space-between;gap:30px;align-items:center}.camp-final-v20 h2{font:clamp(3rem,6vw,6rem)/.92 Anton,sans-serif;margin:8px 0}.camp-final-v20 p:last-child{color:#d1ddd7}.camp-final-v20>a{background:#f5c94a;color:#043927;white-space:nowrap}
+@media(max-width:1050px){.camp-feature-grid-v20,.draft-stat-grid-v20{grid-template-columns:1fr 1fr}.camp-hero-v20{grid-template-columns:1fr}.camp-field-photo-v20{min-height:430px}.recent-draft-v20{grid-template-columns:1fr}}@media(max-width:720px){.draft-headliners-v20{grid-template-columns:1fr}.recent-pick-grid-v20{grid-template-columns:1fr}.camp-final-v20{display:block}.camp-final-v20>a{margin-top:18px}.camp-feature-grid-v20,.draft-stat-grid-v20{grid-template-columns:1fr}.camp-hero-v20{padding:48px 22px}.camp-field-photo-v20{min-height:340px}.draft-headline-card-v20{grid-template-columns:72px 1fr}.draft-number-v20{width:66px;height:66px;font-size:1.8rem}}
+
+/* v21: full-field hero + uncropped player portraits */
+.hero {
+  grid-template-columns: .88fr 1.12fr;
+  gap: 48px;
+}
+.hero-photo {
+  min-height: 640px;
+  background:
+    linear-gradient(to top, rgba(2,38,28,.92) 0%, rgba(2,38,28,.42) 28%, rgba(2,38,28,.04) 65%),
+    url("john-smith-field.webp") center center / contain no-repeat,
+    #173e2f;
+}
+
+/* Do not crop player faces/caps. Use a portrait frame with the entire official headshot visible. */
+.player-photo,
+.result-photo,
+.award-photo,
+.profile-photo-large,
+.article-photo {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: linear-gradient(180deg,#f7f8f5 0%,#e7ece8 100%) !important;
+}
+.player-photo {
+  width: 88px;
+  height: 104px;
+  border-radius: 18px;
+  padding: 3px;
+}
+.result-photo {
+  width: 58px;
+  height: 68px;
+  border-radius: 13px;
+  padding: 2px;
+}
+.award-photo {
+  width: 104px;
+  height: 124px;
+  border-radius: 20px;
+  padding: 3px;
+}
+.profile-photo-large {
+  width: 200px;
+  height: 240px;
+  border-radius: 26px;
+  padding: 5px;
+}
+.article-photo {
+  width: 126px;
+  height: 150px;
+  border-radius: 22px;
+  padding: 3px;
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo { min-height: 520px; }
+}
+@media (max-width: 700px) {
+  .hero-photo { min-height: 420px; }
+  .player-photo { width: 72px; height: 86px; }
+  .result-photo { width: 48px; height: 58px; }
+  .award-photo { width: 78px; height: 94px; }
+  .profile-photo-large { width: 145px; height: 174px; }
+  .article-photo { width: 98px; height: 118px; }
+}
+
+/* v22 clean home + dedicated scoreboard/player pages */
+.clean-home-hero{min-height:650px}.hero-field-link{display:block}.home-portals-section{background:#f4efe4}.home-portal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.home-portal-card{background:#fffdf8;border:1px solid #d4dcd5;border-radius:26px;padding:28px;box-shadow:0 14px 30px rgba(24,39,30,.07);transition:.2s}.home-portal-card:hover{transform:translateY(-3px);border-color:#d6a619}.home-portal-card>span{font:800 .8rem 'IBM Plex Mono',monospace;color:#b68a13;letter-spacing:.08em}.home-portal-card h3{font:2.3rem/.95 Anton,sans-serif;margin:12px 0}.home-portal-card p{color:#5d6b65;line-height:1.65}.home-portal-card b{display:block;margin-top:20px;color:#0b513a}.home-snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.home-snapshot-card{display:grid;grid-template-columns:95px 1fr;gap:18px;background:#073326;border:1px solid rgba(245,201,74,.25);border-radius:22px;padding:20px;align-items:center}.home-snapshot-photo{width:95px;height:115px;background:#eef1ec;border-radius:16px;overflow:hidden}.home-snapshot-photo img{width:100%;height:100%;object-fit:contain;object-position:center;background:#eef1ec}.home-snapshot-card span{font:700 .62rem 'IBM Plex Mono',monospace;color:#f5c94a;letter-spacing:.06em}.home-snapshot-card h3{font:2rem/.95 Anton,sans-serif;margin:8px 0;color:#fff}.home-snapshot-card p{color:#b8c7c0;margin:0 0 8px}.home-snapshot-card b{color:#fff;font-size:.86rem}.home-all-link{text-align:right;margin-top:24px}.home-all-link a{color:#f5c94a;font-weight:800}.home-secondary-links{display:grid;grid-template-columns:1fr 1fr;gap:18px}.home-secondary-links>a{display:grid;gap:7px;background:#fffdf8;border:1px solid #d5ddd7;border-radius:24px;padding:28px}.home-secondary-links span{font:800 .72rem 'IBM Plex Mono',monospace;color:#b68a13}.home-secondary-links strong{font:2.4rem Anton,sans-serif}.home-secondary-links small{color:#65736d;line-height:1.5}.score-page-hero{background:linear-gradient(115deg,#043927,#0b513a);color:#fff;padding:68px 6vw 54px;border-bottom:5px solid #d6a619}.score-page-hero h1{font:clamp(4rem,9vw,8rem)/.9 Anton,sans-serif;margin:10px 0 20px}.score-page-hero>p:last-child{max-width:900px;font-size:1.15rem;line-height:1.7;color:#d6e0db}.score-page-section{min-height:600px}.score-page-toolbar{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-bottom:22px;padding:16px 20px;border-radius:18px;background:#e8eee9;font:.78rem/1.5 'IBM Plex Mono',monospace;color:#466057}.score-page-toolbar strong{color:#043927}.standalone-score-grid,.college-scoreboard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.player-card .player-photo{object-fit:contain!important;object-position:center!important;background:#eef1ec}
+@media(min-width:1200px){.standalone-score-grid,.college-scoreboard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:980px){.home-portal-grid,.home-snapshot-grid{grid-template-columns:1fr 1fr}.desktop-nav{gap:14px;font-size:.86rem}}
+@media(max-width:760px){.home-portal-grid,.home-snapshot-grid,.home-secondary-links,.standalone-score-grid,.college-scoreboard-grid{grid-template-columns:1fr}.score-page-toolbar{align-items:flex-start;flex-direction:column}.clean-home-hero{min-height:0}.home-snapshot-card{grid-template-columns:82px 1fr}.home-snapshot-photo{width:82px;height:102px}}
+.standalone-score-grid{display:grid;gap:1px;background:#363636;border-radius:12px;overflow:hidden}.standalone-score-grid .scoreboard-loading,.standalone-score-grid .empty-state{grid-column:1/-1;border-radius:0;margin:0}
+
+/* v23 program success + coaching tree */
+.program-success-v23{background:#f7f4ed}.success-hero-grid-v23{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}.success-stat-card-v23{background:#043927;color:white;border-radius:18px;padding:22px;min-height:165px;display:flex;flex-direction:column;justify-content:flex-end}.success-stat-card-v23 strong{font-family:Anton,sans-serif;font-size:58px;line-height:.9;color:#d9ad4a}.success-stat-card-v23 span{font-weight:800;font-size:13px;letter-spacing:.08em;margin-top:12px}.success-stat-card-v23 p{margin:6px 0 0;color:#d8e0db;font-size:13px}.success-story-grid-v23{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.success-story-v23{background:white;border:1px solid #d9ddd9;border-radius:18px;padding:22px}.success-story-v23 h3{font-family:Anton,sans-serif;font-size:30px;margin:8px 0}.success-story-v23 p{line-height:1.65;color:#40504a}.success-story-v23 a{font-weight:800;color:#07553b;text-decoration:none}.tree-hero-v23{background:linear-gradient(135deg,#052f22,#061b15);color:#fff;padding:64px max(24px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:1.5fr .75fr;gap:36px;align-items:end}.tree-hero-v23 h1{font-family:Anton,sans-serif;font-size:clamp(58px,9vw,112px);line-height:.88;margin:12px 0}.tree-hero-v23>div>p:last-child{max-width:760px;line-height:1.7;color:#d5dfda}.tree-hero-v23 aside{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);border-radius:18px;padding:24px}.tree-hero-v23 aside span{display:block;font-size:12px;letter-spacing:.13em;color:#d9ad4a;font-weight:800}.tree-hero-v23 aside strong{display:block;font-family:Anton,sans-serif;font-size:34px;margin:4px 0 12px}.tree-hero-v23 aside a{color:#fff;font-weight:800}.tree-grid-v23{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.tree-grid-v23 article{border:1px solid #d9ddd9;border-radius:16px;padding:20px;background:white}.tree-grid-v23 h3{font-family:Anton,sans-serif;font-size:27px;margin:0 0 6px}.tree-grid-v23 span{display:block;color:#88702e;font-size:11px;font-weight:800;letter-spacing:.06em;margin-bottom:10px}.tree-grid-v23 p{line-height:1.55;color:#43504b}.tree-grid-dark-v23 article{background:#0e3328;border-color:#315246}.tree-grid-dark-v23 article h3,.tree-grid-dark-v23 article p{color:#fff}.tree-grid-dark-v23 article span{color:#e2bf63}.tree-callout-v23{max-width:900px;margin:auto;text-align:center}.tree-callout-v23 h2{font-family:Anton,sans-serif;font-size:48px;margin:8px 0}.tree-callout-v23 p{font-size:17px;line-height:1.7;color:#42504a}.tree-callout-v23 .hero-button{display:inline-block;margin-top:14px}
+@media(max-width:900px){.success-hero-grid-v23{grid-template-columns:repeat(2,1fr)}.success-story-grid-v23{grid-template-columns:1fr}.tree-hero-v23{grid-template-columns:1fr}.tree-grid-v23{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.success-hero-grid-v23{grid-template-columns:1fr 1fr;gap:9px}.success-stat-card-v23{padding:16px;min-height:135px}.success-stat-card-v23 strong{font-size:46px}.tree-grid-v23{grid-template-columns:1fr}.tree-hero-v23{padding-top:44px}.tree-hero-v23 h1{font-size:62px}}
+
+
+/* v24: Life at Sac State */
+.life-hero-v24{background:linear-gradient(120deg,#043927 0%,#0c4b35 55%,#31532f 100%);color:#fff;padding:64px 6vw 76px;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}.life-hero-v24 h1{font:clamp(5rem,10vw,9.5rem)/.82 Anton,sans-serif;margin:14px 0 26px;letter-spacing:-.02em}.life-hero-copy-v24>p:not(.eyebrow){max-width:760px;font-size:1.2rem;line-height:1.75;color:#d8e4de}.life-chip-row-v24{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}.life-chip-row-v24 span{border:1px solid rgba(245,201,74,.55);border-radius:999px;padding:9px 12px;color:#f5c94a;font:800 .69rem 'IBM Plex Mono',monospace;letter-spacing:.05em}.life-campus-photo-v24{position:relative;display:block;min-height:560px;border-radius:28px;overflow:hidden;border:1px solid rgba(245,201,74,.42);background:#092e23}.life-campus-photo-v24 img{position:absolute;width:100%;height:100%;object-fit:cover;object-position:center}.life-campus-photo-v24:after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(2,30,23,.92),rgba(2,30,23,.05) 62%)}.life-campus-photo-v24>div{position:absolute;z-index:2;left:28px;right:28px;bottom:26px}.life-campus-photo-v24 span{display:block;color:#f5c94a;font:800 .72rem 'IBM Plex Mono',monospace;letter-spacing:.08em}.life-campus-photo-v24 strong{display:block;font:3.2rem/.95 Anton,sans-serif;margin:7px 0}.life-campus-photo-v24 small{font:700 .78rem 'IBM Plex Mono',monospace;color:#d8e4de}.life-fast-facts-v24{background:#f4efe4}.life-stat-grid-v24{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.life-stat-grid-v24 article{background:#fffdf8;border:1px solid #d8ded9;border-radius:20px;padding:24px;min-height:190px}.life-stat-grid-v24 strong{font:3.2rem/.9 Anton,sans-serif;color:#043927}.life-stat-grid-v24 span{display:block;margin:12px 0 8px;color:#b1830a;font:800 .74rem 'IBM Plex Mono',monospace;letter-spacing:.06em}.life-stat-grid-v24 p{color:#5a6862;line-height:1.6}.life-feature-grid-v24{display:grid;grid-template-columns:1fr 1fr;gap:20px}.life-photo-card-v24{position:relative;min-height:570px;border-radius:26px;overflow:hidden;background:#082f24;color:#fff;display:flex;align-items:flex-end}.life-photo-card-v24>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.life-photo-card-v24:after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(2,28,21,.96),rgba(2,28,21,.1) 68%)}.life-photo-card-v24>div{position:relative;z-index:2;padding:30px}.life-photo-card-v24 span{font:800 .72rem 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#f5c94a}.life-photo-card-v24 h3{font:clamp(2.7rem,5vw,5rem)/.9 Anton,sans-serif;margin:9px 0 14px}.life-photo-card-v24 p{max-width:650px;color:#d8e2dd;line-height:1.6}.life-photo-card-v24 b{display:block;margin-top:16px;color:#f5c94a}.life-city-v24{background:#f7f4ed}.life-attraction-grid-v24{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.life-attraction-card-v24{background:#fff;border:1px solid #d8ded9;border-radius:20px;padding:24px;min-height:270px}.life-attraction-card-v24>span,.life-attraction-photo-v24 div>span{font:800 .7rem 'IBM Plex Mono',monospace;color:#b1830a;letter-spacing:.08em}.life-attraction-card-v24 h3{font:2.25rem/.95 Anton,sans-serif;margin:10px 0}.life-attraction-card-v24 p{color:#53615b;line-height:1.62}.life-attraction-card-v24 a{color:#07543c;font-weight:800}.life-attraction-photo-v24{position:relative;overflow:hidden;padding:0;min-height:390px;display:flex;align-items:flex-end;color:#fff}.life-attraction-photo-v24>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.life-attraction-photo-v24:after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(3,35,26,.94),rgba(3,35,26,.04) 75%)}.life-attraction-photo-v24>div{position:relative;z-index:2;padding:24px}.life-attraction-photo-v24 h3{color:#fff}.life-attraction-photo-v24 p{color:#e2e8e4}.life-location-v24{background:#052f22;color:#fff}.life-location-panel-v24{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}.life-location-panel-v24 h2{font:clamp(3.5rem,7vw,6.5rem)/.9 Anton,sans-serif;margin:8px 0 18px}.life-location-panel-v24>div:first-child>p:last-child{color:#d2ddd7;line-height:1.75;font-size:1.08rem}.life-distance-grid-v24{display:grid;grid-template-columns:1fr 1fr;gap:12px}.life-distance-grid-v24>div{border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:20px;background:rgba(255,255,255,.05)}.life-distance-grid-v24 strong{display:block;font:2.5rem Anton,sans-serif;color:#f5c94a}.life-distance-grid-v24 span{font-weight:700;color:#fff}.life-rhythm-grid-v24{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.life-rhythm-grid-v24 article{border-top:4px solid #d6a619;background:#fffdf8;border-radius:0 0 18px 18px;padding:24px;box-shadow:0 12px 25px rgba(25,42,31,.06)}.life-rhythm-grid-v24 article>span{font:2.6rem Anton,sans-serif;color:#d6a619}.life-rhythm-grid-v24 h3{font:1.9rem Anton,sans-serif;margin:10px 0}.life-rhythm-grid-v24 p{color:#59665f;line-height:1.6}.life-rhythm-grid-v24 a{color:#07543c;font-weight:800}.life-source-v24{border-top:1px solid #d5ddd7;background:#eef2ed;font:.78rem/1.7 'IBM Plex Mono',monospace;color:#4f5e57}.life-source-v24 div{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}.life-source-v24 a{color:#07543c;font-weight:800}
+@media(max-width:1050px){.life-stat-grid-v24,.life-rhythm-grid-v24{grid-template-columns:1fr 1fr}.life-attraction-grid-v24{grid-template-columns:1fr 1fr}.life-hero-v24{grid-template-columns:1fr}.life-campus-photo-v24{min-height:500px}.life-location-panel-v24{grid-template-columns:1fr}}
+@media(max-width:700px){.life-hero-v24{padding:46px 6vw 56px}.life-hero-v24 h1{font-size:clamp(4.7rem,23vw,7rem)}.life-campus-photo-v24{min-height:380px}.life-stat-grid-v24,.life-feature-grid-v24,.life-attraction-grid-v24,.life-rhythm-grid-v24{grid-template-columns:1fr}.life-photo-card-v24{min-height:470px}.life-distance-grid-v24{grid-template-columns:1fr 1fr}.life-campus-photo-v24 strong{font-size:2.5rem}}
+@media(max-width:440px){.life-distance-grid-v24{grid-template-columns:1fr}.life-chip-row-v24 span{font-size:.6rem}.life-photo-card-v24{min-height:420px}}
+
+/* v25 — Life at Sac State attraction tiles now use relevant photography */
+.life-attraction-photo-v24{transition:transform .18s ease,box-shadow .18s ease}.life-attraction-photo-v24:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(25,42,31,.16)}.life-attraction-photo-v24 b{display:block;margin-top:14px;color:#f5c94a;font-weight:800}.life-attraction-photo-v24>img{transition:transform .35s ease}.life-attraction-photo-v24:hover>img{transform:scale(1.025)}
+
+/* v26 coaching-tree profile cards */
+.tree-grid-v26{align-items:stretch}
+.tree-person-v26{padding:0!important;overflow:hidden;display:flex!important;flex-direction:column;min-height:100%;border-radius:14px}
+.tree-photo-v26{height:245px;background:#e9eee9;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.tree-photo-v26 img{display:block;width:100%;height:100%;object-fit:contain;object-position:center top;background:#eef1ee}
+.tree-fallback-v26{display:flex;width:100%;height:100%;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:4.5rem;color:#043927;background:linear-gradient(145deg,#f4f1e7,#d9e1d8)}
+.tree-photo-v26 img + .tree-fallback-v26{display:none}
+.tree-copy-v26{padding:20px;display:flex;flex-direction:column;flex:1}
+.tree-copy-v26 h3{font-size:1.75rem;margin:.2rem 0 .45rem}
+.tree-copy-v26>p{line-height:1.55}
+.tree-era-v26{font-family:'IBM Plex Mono',monospace;font-size:.72rem!important;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin:0 0 .3rem!important}
+.tree-role-v26{font-weight:800!important;color:#987400;margin:.1rem 0 .8rem!important}
+.tree-grid-dark-v23 .tree-role-v26{color:#f7c843}
+.tree-copy-v26 a{margin-top:auto;padding-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.76rem;font-weight:700;text-decoration:none;color:inherit}
+.tree-copy-v26 a:hover{text-decoration:underline}
+@media(max-width:760px){.tree-photo-v26{height:220px}.tree-copy-v26 h3{font-size:1.55rem}}
+
+/* v27 — Full-image photo treatment across the entire site */
+img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* Keep photo frames polished when the source image does not fill the frame. */
+.player-photo,
+.result-photo,
+.profile-photo-large,
+.award-photo,
+.article-photo,
+.coach-card-v17 img,
+.facility-card-v17 img,
+.tech-card-v18 > img,
+.field-feature-v19 > img,
+.field-photo-grid-v19 img,
+.campus-feature-v19 img,
+.coach-article-hero-v19 img,
+.camp-field-photo-v20 img,
+.home-snapshot-photo img,
+.life-campus-photo-v24 img,
+.life-photo-card-v24 > img,
+.life-attraction-photo-v24 > img,
+.tree-photo-v26 img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #eef1ec;
+}
+
+/* Do not zoom photos on hover. */
+.facility-card-v17:hover img,
+.facility-card-v17:focus-visible img,
+.life-attraction-photo-v24:hover > img {
+  transform: none !important;
+}
+
+
+/* v28 — Visual Big West / Nike / Rawlings identity cards */
+.identity-logo-grid-v28{grid-template-columns:repeat(3,minmax(0,1fr))}
+.identity-logo-card-v28{justify-content:flex-start;min-height:360px}
+.identity-logo-frame-v28{height:165px;margin:18px 0 22px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;border:1px solid rgba(5,47,34,.10);overflow:hidden}
+.identity-logo-frame-v28 img{display:block;width:100%;height:100%;object-fit:contain!important;object-position:center!important;background:transparent!important}
+.identity-logo-dark-v28{background:#f7f4ed;border-color:rgba(246,198,70,.35)}
+.identity-logo-card-v28 p{margin-top:auto}
+@media(max-width:900px){.identity-logo-grid-v28{grid-template-columns:1fr}.identity-logo-card-v28{min-height:300px}.identity-logo-frame-v28{height:145px}}
+
+
+/* v30 live status + college postgame box score links */
+.cbs-score-tile{position:relative;}
+.cbs-live-label.live-now{
+  background:#d71920;
+  color:#fff;
+  border-radius:999px;
+  padding:4px 7px;
+  font-weight:900;
+  line-height:1;
+  box-shadow:0 0 0 2px rgba(215,25,32,.12);
+}
+.cbs-score-tile.is-live .cbs-score-head{padding-right:0;}
+.college-score-tile{padding:0;}
+.college-game-main{display:block;color:inherit;text-decoration:none;padding:13px 16px 10px;}
+.college-score-tile:hover .college-game-main,.college-score-tile:focus-within .college-game-main{background:#292929;}
+.college-score-actions{border-top:1px solid #3c3c3c;background:#181818;padding:8px 16px;}
+.college-boxscore-link{display:inline-flex;align-items:center;min-height:28px;color:#fff;text-decoration:none;font:900 .66rem/1.1 "IBM Plex Mono",monospace;letter-spacing:.045em;}
+.college-boxscore-link:hover,.college-boxscore-link:focus-visible{color:#f5c94a;outline:none;}
+@media(max-width:620px){
+  .cbs-live-label.live-now{padding:3px 6px;font-size:.56rem;}
+  .college-game-main{padding:10px 10px 7px;}
+  .college-score-actions{padding:7px 10px;}
+  .college-boxscore-link{font-size:.58rem;}
+}
+/* v30.1 pin LIVE badge to the score card's upper-right corner */
+.cbs-live-label.live-now{position:absolute;top:10px;right:10px;z-index:2;}
+.cbs-score-tile.is-live .cbs-score-head{padding-right:54px;}
+@media(max-width:620px){
+  .cbs-live-label.live-now{top:8px;right:8px;}
+  .cbs-score-tile.is-live .cbs-score-head{padding-right:45px;}
+}
+
+
+/* v31 — Current Hornet Roster */
+.current-roster-hero{padding:72px 6vw 62px;background:linear-gradient(115deg,#043927,#315527);color:#fff;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center}.current-roster-hero h1{font:clamp(4.6rem,9vw,8.5rem)/.84 Anton,sans-serif;margin:10px 0 22px;letter-spacing:-.02em}.current-roster-hero>div>p:not(.eyebrow){max-width:780px;font-size:1.12rem;line-height:1.7;color:#d8e2dd}.current-source-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.current-source-links a,.current-official-links a{display:inline-flex;padding:10px 14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;color:#fff;text-decoration:none;font:800 .72rem 'IBM Plex Mono',monospace}.current-source-links a:hover,.current-official-links a:hover{border-color:#f5c94a;color:#f5c94a}.current-team-mark{border:1px solid rgba(255,255,255,.22);border-radius:28px;padding:34px;background:rgba(255,255,255,.07);text-align:center}.current-team-mark span{display:block;font:5.8rem/.9 Anton,sans-serif;color:#f5c94a}.current-team-mark strong{display:block;font:3rem/.9 Anton,sans-serif}.current-team-mark p{font:800 .74rem 'IBM Plex Mono',monospace;color:#d7e0db}.current-team-stats{background:#f5f1e8}.team-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.team-stat-grid article{background:#fff;border:1px solid #dce1dc;border-radius:18px;padding:23px}.team-stat-grid strong{display:block;font:3.1rem/.95 Anton,sans-serif;color:#043927}.team-stat-grid span{display:block;margin:8px 0;color:#b1830a;font:800 .7rem 'IBM Plex Mono',monospace;letter-spacing:.07em}.team-stat-grid p{margin:0;color:#65716b;font-size:.9rem}.current-leaders{background:#fff}.leader-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.leader-grid article{border-left:4px solid #d6a619;background:#f7f5ef;padding:18px 20px;border-radius:0 14px 14px 0}.leader-grid span{display:block;color:#99770d;font:800 .67rem 'IBM Plex Mono',monospace}.leader-grid strong{display:block;margin-top:7px;color:#043927;font-size:1rem}.current-directory{padding-bottom:78px}.current-directory .section-heading{align-items:end}.current-player-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.current-player-card{display:flex;flex-direction:column;background:#fff;color:#14231d;text-decoration:none;border-radius:20px;overflow:hidden;min-height:370px;transition:transform .18s ease,box-shadow .18s ease}.current-player-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(0,0,0,.2)}.current-player-visual{height:160px;background:linear-gradient(145deg,#e9eee9,#cdd8d0);display:flex;align-items:center;justify-content:center;position:relative}.current-player-visual>strong{font:4.3rem Anton,sans-serif;color:#043927;opacity:.82}.current-number{position:absolute;top:12px;right:14px;font:1.1rem Anton,sans-serif;color:#a77d00}.current-player-copy{padding:19px;display:flex;flex-direction:column;flex:1}.current-player-copy>p{margin:0;color:#9a7709;font:800 .66rem 'IBM Plex Mono',monospace}.current-player-copy h3{font:2rem/.95 Anton,sans-serif;color:#043927;margin:8px 0}.current-player-copy small{color:#65716b}.current-mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;padding-top:16px}.current-mini-stats span{border-top:1px solid #dfe4df;padding-top:9px;text-align:center;font:700 .58rem 'IBM Plex Mono',monospace;color:#77817c}.current-mini-stats b{display:block;color:#043927;font-size:.92rem;margin-bottom:3px}.current-mini-stats.no-stats{grid-template-columns:1fr}.current-source-note{background:#edf1ec;font:.78rem/1.7 'IBM Plex Mono',monospace;color:#51605a}.current-profile-hero{padding:64px 6vw;background:linear-gradient(120deg,#043927,#315527);color:#fff;display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}.current-profile-visual{height:330px;border-radius:26px;background:linear-gradient(145deg,#f4f1e7,#c9d5cb);display:flex;align-items:center;justify-content:center;position:relative}.current-profile-visual span{position:absolute;top:22px;right:24px;font:2rem Anton,sans-serif;color:#9a7709}.current-profile-visual strong{font:7rem Anton,sans-serif;color:#043927}.current-profile-hero h1{font:clamp(4.2rem,9vw,8rem)/.88 Anton,sans-serif;margin:8px 0 14px}.current-profile-hero>div:last-child>p:not(.eyebrow):not(.current-profile-role){max-width:800px;line-height:1.65;color:#dce5e0}.current-profile-role{font:800 .78rem 'IBM Plex Mono',monospace;color:#f5c94a}.gold-button{display:inline-flex;margin-top:18px;background:#f5c94a;color:#043927;padding:12px 16px;border-radius:999px;text-decoration:none;font:900 .72rem 'IBM Plex Mono',monospace}.current-profile-facts{background:#f5f1e8}.current-fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.current-fact-grid article{background:#fff;border:1px solid #d9dfda;border-radius:16px;padding:18px}.current-fact-grid article.wide{grid-column:span 2}.current-fact-grid span{display:block;color:#a47c08;font:800 .65rem 'IBM Plex Mono',monospace;margin-bottom:7px}.current-fact-grid strong{color:#043927}.current-profile-stat-grid{grid-template-columns:repeat(6,1fr)!important}.current-detail-table{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}.current-detail-table>div{border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:14px}.current-detail-table span{display:block;color:#f5c94a;font:700 .62rem 'IBM Plex Mono',monospace;margin-bottom:5px}.current-detail-table b{font-size:1.1rem}.current-no-stat{border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:28px;max-width:760px}.current-no-stat strong{font:2rem Anton,sans-serif;color:#f5c94a}.current-no-stat p{color:#dce5e0}.current-official-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+@media(max-width:1120px){.current-player-grid{grid-template-columns:repeat(3,1fr)}.team-stat-grid,.leader-grid{grid-template-columns:repeat(2,1fr)}.current-profile-stat-grid{grid-template-columns:repeat(3,1fr)!important}.current-detail-table{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.current-roster-hero,.current-profile-hero{grid-template-columns:1fr;padding:48px 6vw}.current-team-mark{max-width:420px}.current-player-grid{grid-template-columns:repeat(2,1fr)}.current-fact-grid{grid-template-columns:1fr 1fr}.current-profile-visual{height:260px;max-width:300px}.current-profile-visual strong{font-size:5.5rem}.current-directory .section-heading{display:block}.current-directory .filters{margin-top:18px}}
+@media(max-width:520px){.current-player-grid,.team-stat-grid,.leader-grid,.current-fact-grid,.current-detail-table{grid-template-columns:1fr}.current-fact-grid article.wide{grid-column:auto}.current-profile-stat-grid{grid-template-columns:1fr 1fr!important}.current-player-card{min-height:330px}.current-player-visual{height:135px}}
+
+/* v32 — compact visual coaching tree */
+.tree-hero-v32{padding:66px 6vw 44px;background:linear-gradient(120deg,#043927,#315527);color:#fff;text-align:center}.tree-hero-v32 h1{font:clamp(4rem,8vw,7.2rem)/.9 Anton,sans-serif;margin:8px auto 16px;letter-spacing:-.02em}.tree-hero-v32>p:last-child{max-width:760px;margin:0 auto;color:#dbe4df;font-size:1.05rem;line-height:1.65}.coaching-tree-v32{background:#f4f0e7;padding-top:52px;overflow:hidden}.tree-root-v32{display:flex;justify-content:center;position:relative;z-index:2}.tree-node-v32{display:flex;align-items:center;gap:12px;width:100%;min-height:94px;padding:12px 14px;background:#fff;border:1px solid #d7ddd7;border-radius:16px;color:#14231d;text-decoration:none;box-shadow:0 7px 18px rgba(4,57,39,.07);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}.tree-node-v32:hover,.tree-node-v32:focus-visible{transform:translateY(-2px);box-shadow:0 12px 28px rgba(4,57,39,.13);border-color:#c99d20;outline:none}.tree-root-card-v32{width:min(430px,92vw);min-height:130px;padding:16px 20px;border:3px solid #d6a619;background:#043927;color:#fff}.tree-root-card-v32 h2{font:2rem/.95 Anton,sans-serif;margin:4px 0}.tree-root-card-v32 p{margin:0;color:#f5c94a;font-weight:800}.tree-root-card-v32 small{color:#dbe4df}.tree-node-photo-v32{width:64px;height:64px;flex:0 0 64px;border-radius:12px;overflow:hidden;background:#e7ece8;display:flex;align-items:center;justify-content:center;position:relative}.tree-root-card-v32 .tree-node-photo-v32{width:92px;height:92px;flex-basis:92px;border-radius:16px;background:#f3f0e7}.tree-node-photo-v32 img{width:100%;height:100%;object-fit:contain!important;object-position:center!important;background:#eef1ec}.tree-node-photo-v32 span{display:none;width:100%;height:100%;align-items:center;justify-content:center;font:1.35rem Anton,sans-serif;color:#043927}.tree-node-photo-v32 span.show-fallback{display:flex}.tree-node-v32 h3{font:1.25rem/1 Anton,sans-serif;color:#043927;margin:0 0 4px}.tree-node-v32 p{font-size:.78rem;line-height:1.3;margin:0;color:#485650;font-weight:800}.tree-node-v32 small{display:block;margin-top:5px;font:700 .62rem/1.25 'IBM Plex Mono',monospace;color:#8b6a08}.tree-root-card-v32 h2,.tree-root-card-v32 h3{color:#fff}.tree-trunk-v32{width:4px;height:58px;background:#d6a619;margin:0 auto;position:relative}.tree-trunk-v32:after{content:"";position:absolute;width:min(980px,78vw);height:4px;background:#d6a619;left:50%;bottom:0;transform:translateX(-50%);border-radius:999px}.tree-branches-v32{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;align-items:start;position:relative}.tree-branch-v32{position:relative;padding-top:34px}.tree-branch-v32:before{content:"";position:absolute;top:0;left:50%;width:4px;height:34px;background:#d6a619;transform:translateX(-50%)}.tree-branch-label-v32{display:flex;justify-content:center;margin-bottom:16px}.tree-branch-label-v32 span{display:inline-flex;align-items:center;justify-content:center;background:#043927;color:#f5c94a;border-radius:999px;padding:8px 13px;font:900 .66rem 'IBM Plex Mono',monospace;letter-spacing:.06em;text-align:center}.tree-leaves-v32{display:grid;gap:10px}.tree-historical-v32 .tree-branch-label-v32 span{background:#5c665f;color:#fff}.tree-historical-v32 .tree-node-v32{opacity:.86}.tree-source-v32{text-align:center;margin-top:36px}.tree-source-v32 a{display:inline-flex;padding:10px 14px;border-radius:999px;background:#043927;color:#fff;text-decoration:none;font:800 .67rem 'IBM Plex Mono',monospace}.tree-source-v32 a:hover{color:#f5c94a}
+@media(max-width:1100px){.tree-trunk-v32:after{width:min(640px,72vw)}.tree-branches-v32{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 22px}.tree-branch-v32:nth-child(3),.tree-branch-v32:nth-child(4){margin-top:8px}.tree-branch-v32:nth-child(3):before,.tree-branch-v32:nth-child(4):before{height:26px;top:8px}.tree-node-v32{min-height:88px}}
+@media(max-width:650px){.tree-hero-v32{padding:48px 6vw 36px}.coaching-tree-v32{padding-left:5vw;padding-right:5vw}.tree-root-card-v32{min-height:112px}.tree-root-card-v32 .tree-node-photo-v32{width:78px;height:78px;flex-basis:78px}.tree-root-card-v32 h2{font-size:1.65rem}.tree-trunk-v32{height:34px}.tree-trunk-v32:after{display:none}.tree-branches-v32{grid-template-columns:1fr;gap:12px}.tree-branch-v32{padding-top:28px}.tree-branch-v32:before{height:28px}.tree-node-photo-v32{width:58px;height:58px;flex-basis:58px}.tree-node-v32 h3{font-size:1.15rem}.tree-node-v32 p{font-size:.75rem}.tree-node-v32 small{font-size:.58rem}}
+
+/* v33 current roster photography */
+.current-player-visual{overflow:hidden;background:#e8ede9}
+.current-player-photo{width:100%;height:100%;object-fit:contain;object-position:center;background:#e8ede9;display:block}
+.current-player-visual .current-number{z-index:2;background:rgba(4,57,39,.92);color:#f5c94a;padding:5px 8px;border-radius:999px;line-height:1}
+.current-profile-visual{overflow:hidden;background:#e8ede9}
+.current-profile-photo{width:100%;height:100%;object-fit:contain;object-position:center;background:#e8ede9;display:block}
+.current-profile-visual span{z-index:2;background:rgba(4,57,39,.92);color:#f5c94a;padding:7px 10px;border-radius:999px;line-height:1}
